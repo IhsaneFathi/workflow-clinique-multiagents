@@ -1,16 +1,5 @@
 # Workflow Multi-Agents d'Orientation Clinique Simulee
 
-> **Projet academique** — TP 10 Module Systeme Multi-Agents
-> Pr. MHAMMEDI Sajida — ENIAD Berkane / Universite Mohammed Premier Oujda
-
----
-
-## Equipe
-
-- **Ezaougi Hajar**
-- **FATHI Ihsane**
-
----
 
 ## Avertissement ethique
 
@@ -233,5 +222,3 @@ Pour chaque cas, verifier :
 - **ReportLab** — export PDF
 
 ---
-
-*Ce systeme ne remplace pas une consultation medicale — Projet academique ENIAD Berkane 2025-2026*
