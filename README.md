@@ -222,3 +222,10 @@ Pour chaque cas, verifier :
 - **ReportLab** — export PDF
 
 ---
+
+## Captures
+
+<img width="947" height="411" alt="Capture45" src="https://github.com/user-attachments/assets/efc40be4-ca1e-43b9-830b-49183992219c" />
+
+<img width="1600" height="688" alt="image" src="https://github.com/user-attachments/assets/1106bc25-b76e-4807-8455-c1776d305235" />
+
