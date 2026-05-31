@@ -1,0 +1,80 @@
+version: "3.9"
+
+networks:
+  clinical_net:
+    driver: bridge
+
+volumes:
+  db_data:
+
+services:
+
+  mcp_server:
+    build:
+      context: .
+      dockerfile: Dockerfile.mcp
+    container_name: clinical_mcp_server
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    networks:
+      - clinical_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: clinical_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    networks:
+      - clinical_net
+    volumes:
+      - db_data:/app/data
+    environment:
+      # ── LLM : Groq (prioritaire) ou OpenAI ──
+      GROQ_API_KEY: ${GROQ_API_KEY}
+      GROQ_MODEL: ${GROQ_MODEL:-llama3-8b-8192}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      # ── Services internes ──
+      MCP_SERVER_URL: http://mcp_server:8001
+      SQLITE_DB_PATH: /app/data/clinical_workflow.db
+    depends_on:
+      mcp_server:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: clinical_frontend
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    networks:
+      - clinical_net
+    environment:
+      API_BASE_URL: http://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 40s

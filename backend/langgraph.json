@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "clinical_workflow": "app.graph:get_graph"
+  },
+  "env": "../.env"
+}
