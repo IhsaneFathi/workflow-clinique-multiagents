@@ -227,5 +227,8 @@ Pour chaque cas, verifier :
 
 <img width="947" height="411" alt="Capture45" src="https://github.com/user-attachments/assets/efc40be4-ca1e-43b9-830b-49183992219c" />
 
-<img width="1600" height="688" alt="image" src="https://github.com/user-attachments/assets/1106bc25-b76e-4807-8455-c1776d305235" />
+<img width="1600" height="738" alt="image" src="https://github.com/user-attachments/assets/cab9ccfe-fac7-4132-bc03-18f1406e0a98" />
 
+<img width="1600" height="736" alt="image" src="https://github.com/user-attachments/assets/2a852797-650c-4c4d-b28f-d1cbbc3fda5b" />
+
+<img width="1600" height="746" alt="image" src="https://github.com/user-attachments/assets/0a5ee17b-8747-4c7d-b45f-b46c790f57c4" />
